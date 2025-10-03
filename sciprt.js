@@ -1,7 +1,6 @@
 let currentVerse = null;
 let isLoading = false;
 
-// Popular and meaningful verses to randomly select from
 const popularVerses = [
     { book: 'John', chapter: 3, verse: 16 },
     { book: 'Philippians', chapter: 4, verse: 13 },
@@ -34,13 +33,11 @@ async function generateVerse() {
 
     btn.disabled = true;
     btn.innerHTML = '<span>Loading</span><div class="spinner"></div>';
-    container.classList.add('loading');
+    container.classList.add('loading-state');
 
     try {
-        // Select a random verse from our curated list
         const randomVerse = popularVerses[Math.floor(Math.random() * popularVerses.length)];
 
-        // Fetch from Bible API
         const response = await fetch(
             `https://bible-api.com/${randomVerse.book}+${randomVerse.chapter}:${randomVerse.verse}`
         );
@@ -53,11 +50,9 @@ async function generateVerse() {
             reference: data.reference
         };
 
-        // Display the verse
         document.getElementById('verseText').textContent = currentVerse.text;
         document.getElementById('verseReference').textContent = currentVerse.reference;
 
-        // Generate contextual explanation
         const explanation = generateExplanation(randomVerse.book, randomVerse.chapter);
         document.getElementById('explanationText').textContent = explanation;
         document.getElementById('explanation').style.display = 'block';
@@ -71,8 +66,8 @@ async function generateVerse() {
     } finally {
         isLoading = false;
         btn.disabled = false;
-        btn.innerHTML = '<span>Generate New Verse</span>';
-        container.classList.remove('loading');
+        btn.innerHTML = '<span>New Verse</span>';
+        container.classList.remove('loading-state');
     }
 }
 
@@ -99,15 +94,15 @@ function generateExplanation(book, chapter) {
 
 function copyVerse() {
     if (!currentVerse) {
-        showNotification('Please generate a verse first!', true);
+        showNotification('Please generate a verse first', true);
         return;
     }
 
-    const textToCopy = `${currentVerse.text}\n\n- ${currentVerse.reference}`;
+    const textToCopy = `${currentVerse.text}\n\n— ${currentVerse.reference}`;
     navigator.clipboard.writeText(textToCopy).then(() => {
-        showNotification('Verse copied to clipboard! ✓');
+        showNotification('Copied to clipboard');
     }).catch(() => {
-        showNotification('Failed to copy. Please try again.', true);
+        showNotification('Failed to copy', true);
     });
 }
 
@@ -118,11 +113,11 @@ function showNotification(message, isError = false) {
     document.body.appendChild(notification);
 
     setTimeout(() => {
-        notification.remove();
-    }, 3000);
+        notification.style.opacity = '0';
+        setTimeout(() => notification.remove(), 400);
+    }, 2500);
 }
 
-// Generate initial verse on load
 window.onload = () => {
     setTimeout(generateVerse, 500);
 };

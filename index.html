@@ -1,42 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Verse - Bible Inspiration</title>
+    <title>Daily Verse</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="background-pattern"></div>
-
     <div class="container">
+        <div class="ornament">✦</div>
+        
         <div class="header">
-            <h1>✨ Daily Verse</h1>
-            <p>Find inspiration in God's Word</p>
+            <h1>Daily Verse</h1>
+            <p>A moment with Scripture</p>
         </div>
 
         <div class="verse-card">
-            <div class="verse-text" id="verseText">Click the button below to receive your daily verse</div>
+            <div class="verse-text" id="verseText">Click below to receive a verse</div>
             <div class="verse-reference" id="verseReference"></div>
         </div>
 
         <div class="explanation" id="explanation" style="display: none;">
-            <h3>Context & Meaning</h3>
+            <h3>Context</h3>
             <p id="explanationText"></p>
         </div>
 
         <div class="button-container">
             <button id="generateBtn" onclick="generateVerse()">
-                <span>Generate New Verse</span>
+                <span>New Verse</span>
             </button>
-            <button class="copy-btn" onclick="copyVerse()">
-                <span>Copy Verse</span>
+            <button onclick="copyVerse()">
+                <span>Copy</span>
             </button>
         </div>
     </div>
 
 
+    <script src="sciprt.js"></script>
 </body>
-
 </html>
