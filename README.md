@@ -29,7 +29,7 @@ Bible API - Free REST API for Bible verses (bible-api.com)
 
 Clone the repository:
 
-bashgit clone https://github.com/thotcher/daily-verse.git
+bashgit clone https://thothcher.github.io/bibleVerse.git
 
 Navigate to the project directory:
 
@@ -53,7 +53,7 @@ Push your code to GitHub
 Go to repository Settings → Pages
 Select the branch (usually main) and root directory
 Click Save
-Your site will be available at https://thotcher.github.io/daily-verse/
+Your site will be available at https://thothcher.github.io/bibleVerse/
 
 Other Hosting Options
 This is a static site that can be hosted anywhere:
@@ -136,7 +136,7 @@ Typography - Georgia and Segoe UI fonts
 Design Inspiration - Minimalist web design principles
 
 📧 Contact
-Project Link: https://github.com/thothcher/daily-verse
+Project Link: https://thothcher.github.io/bibleVerse/
 🌟 Show Your Support
 If you found this project helpful, please give it a ⭐️!
 
